@@ -72,6 +72,21 @@ var getAvailableProducts = function(array) {
 
 console.log(getAvailableProducts(getItems(googleProducts), "inStock"))
 
+console.log("Problem 5")
+
+//Comment out previous console.log statement to make this problem run correctly.
+
+console.log('All items made by Sony:');
+    var itemsBySony = getItemsByBrand(getItems(googleProducts), "Sony")
+console.log(itemsBySony);
+
+console.log('All items made by Sony that are available:');
+console.log(getAvailableProducts(itemsBySony));
+
+console.log('All items made by Nikon with the author eBay:');
+    var itemsByNikon = getItemsByBrand(getItems(), "Nikon")
+console.log(getItemsByAuthor(itemsByNikon, "eBay"));
+
 
 
 
