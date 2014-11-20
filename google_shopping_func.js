@@ -18,7 +18,7 @@ var googleProducts = require("./products.json")
 
 console.log("Problem 1")
 var getItems = function(data) {
-	return data.items
+	return data.items;
 }
 
 console.log(getItems(googleProducts))
@@ -55,23 +55,22 @@ var getItemsByAuthor = function(array,author) {
 console.log(getItemsByAuthor(getItems(googleProducts), "CDW"))
 
 console.log("Problem 4")
-var availableArray = []
 
-var getAvailableProducts = function(array,status) {
+
+var availableProducts = []
+var getAvailableProducts = function(array) {
 	for (var i = 0; i < array.length; i++) {
-	var inventoriesLength = array[i].product.inventories.legnth;
-	for (var j = 0; j < inventoriesLength; j++){
-		if (array[i].product.inventories[j].availability === "inStock") {
-			 console.log(i + " " + array[i].product.googleId + ": " + array[i].product.inventories[j].availability);
-			availableArray.push(array[i].product)
-		} 
+		var inventoriesLength = array[i].product.inventories.length;
+		for (var j = 0; j < inventoriesLength; j++) {
+			if (array[i].product.inventories[j].availability === "inStock") {
+				availableProducts.push(array[i].product)
+			}
+		}
 	}
+	return availableProducts
 }
 
-	return availableArray
-}
-
-console.log(getAvailableProducts(getItems()));
+console.log(getAvailableProducts(getItems(googleProducts), "inStock"))
 
 
 
